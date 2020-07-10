@@ -1,23 +1,17 @@
 <?php
 
 // Require Materialize Custom Nav Walker Class
-require get_template_directory() . '/class-materialize-navwalker.php';
 
-add_action( 'wp_footer' , 'materialize_nav_walker_dropdown_init' );
 
-if( ! function_exists('materialize_nav_walker_dropdown_init') ) {
-
-  function materialize_nav_walker_dropdown_init() { ?>
-      <script>
-          jQuery(document).ready(function($) {
-              jQuery(".nav-item-dropdown-button").dropdown({constrainWidth: true});
-              jQuery(".side-menu-nav-item-dropdown-button").dropdown({constrainWidth: false});
-              jQuery(".button-collapse").sideNav();
-          });
-      </script>
-  <?php }
-
+function load_scripts() {
+  wp_enqueue_style('materialize-css', get_template_directory_uri() . "/css/materialize.min.css", array());
+  wp_enqueue_style('material-icons','https://fonts.googleapis.com/icon?family=Material+Icons', array());
+  wp_enqueue_style('template-css', get_template_directory_uri() . '/css/template.css', array());
+  wp_enqueue_script('materialize-js', get_template_directory_uri() . '/js/materialize.min.js', array('jquery'));
 }
+
+add_action('wp_enqueue_scripts', 'load_scripts');
+
 
 
 
