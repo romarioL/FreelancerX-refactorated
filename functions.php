@@ -21,9 +21,8 @@ if( ! function_exists('materialize_nav_walker_dropdown_init') ) {
 
 
 
+function freelancerX_widgets() {
 
-
-if ( function_exists('register_sidebar') )
   register_sidebar(array(
     'id' => 'footer',
     'name' => 'Footer',
@@ -33,6 +32,13 @@ if ( function_exists('register_sidebar') )
     'after_title' => '</h3>',
   )
 );
+
+}
+
+
+add_action('widgets_init', 'freelancerX_widgets');
+
+  
 
 
 
