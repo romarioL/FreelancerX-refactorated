@@ -29,8 +29,8 @@
 
           $my_page = get_posts($args);
 
-           if($my_page) {
-           foreach ($my_page as $post) {
+           if($my_page):
+           foreach ($my_page as $post):
              setup_postdata($post);
 
           ?>
@@ -43,12 +43,11 @@
 
          </div>
 
+ 
+<?php
 
-         <?php 
-
-       }
-
-     }
+      endforeach;
+      endif;
 
          ?>
          </div>
