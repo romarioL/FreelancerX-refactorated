@@ -23,28 +23,33 @@
        
          <div class="main-screen black">
 
-          <?php 
+          <?php
+          
+          if(!is_page('Sobre mim')):
 
-          $args = array('post_type' => 'page', 'pagename' => 'Sobre mim');
+                $args = array('post_type' => 'page', 'pagename' => 'Sobre mim');
 
-          $my_page = get_posts($args);
+                $my_page = get_posts($args);
 
-           if($my_page):
-           foreach ($my_page as $post):
-             setup_postdata($post);
+                if($my_page):
+                foreach ($my_page as $post):
+                  setup_postdata($post);
 
-          ?>
+                ?>
 
-          <div class="container">
+                <div class="container">
 
-         <?php  get_template_part('template-parts/content', 'home-page'); ?>
+              <?php  get_template_part('template-parts/content', 'home-page'); ?>
 
-         </div>
+              </div>
+
+                
 
  
 <?php
 
-      endforeach;
+          endforeach;
+          endif;
       endif;
 
          ?>
